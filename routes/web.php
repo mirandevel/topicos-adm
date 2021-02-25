@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(\route('gestion.trabajador'));
 });
 
 Route::get('/gestion/trabajadores',\App\Http\Livewire\GestionTrabajador::class)->name('gestion.trabajador');

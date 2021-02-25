@@ -14,7 +14,7 @@
                     <select wire:model="estado" type="int"
                             id="cantidad"
                             class="appearance-none h-full rounded border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                        <option value="{{''}}">Todos</option>
+                        <option value="t">Todos</option>
                         <option value="a">Aceptados</option>
                         <option value="r">Rechazados</option>
                         <option value="p">Pendiente</option>
@@ -41,7 +41,7 @@
                             </th>
                             <th
                                 class="px-5 py-3 border-b-2 border-gray-800 bg-gray-600  text-center text-xs  text-white uppercase">
-                                Habilitado
+                                Estado
                             </th>
                             <th
                                 class="px-5 py-3 border-b-2 border-gray-800 bg-gray-600  text-center text-xs  text-white uppercase">

@@ -77,14 +77,74 @@
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-800 bg-white text-sm">
                                     <div class="flex items-center justify-center">
-                                        <x-jet-button wire:click="aceptar({{ $trabajador['id'] }})">Aceptar</x-jet-button>
-                                        <x-jet-button wire:click="rechazar({{ $trabajador['id'] }})">Rechazar</x-jet-button>
+                                        <button type="button" wire:click="$toggle('aceptar')"  class="bg-gray-200 p-3 rounded hover:bg-red-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                 class="fill-current text-black">
+                                                <path d="M10 15.586L6.707 12.293 5.293 13.707 10 18.414 19.707 8.707 18.293 7.293z"></path>
+                                            </svg>
+                                        </button>
+                                        <button type="button" wire:click="$toggle('rechazar')"  class="bg-gray-200 p-3 rounded hover:bg-red-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                 class="fill-current text-black">
+                                                <path d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z"></path>
+                                            </svg>
+                                        </button>
+
+                                        <button type="button" wire:click="$toggle('ver')"  class="bg-gray-200 p-3 rounded hover:bg-gray-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                 class="fill-current text-black">
+                                                <path d="M12,5c-7.633,0-9.927,6.617-9.948,6.684L1.946,12l0.105,0.316C2.073,12.383,4.367,19,12,19s9.927-6.617,9.948-6.684 L22.054,12l-0.105-0.316C21.927,11.617,19.633,5,12,5z M12,16c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S14.206,16,12,16z"></path><path d="M12,10c-1.084,0-2,0.916-2,2s0.916,2,2,2s2-0.916,2-2S13.084,10,12,10z">
+                                                </path></svg>
+                                        </button>
+
+                                        <x-jet-dialog-modal id:="$trabajador['id']" wire:model="aceptar">
+                                            <x-slot name="title">
+                                                Aceptar Trabajador
+                                            </x-slot>
+
+                                            <x-slot name="content">
+                                                ¿Está seguro de aceptar a este trabajador?
+                                            </x-slot>
+
+                                            <x-slot name="footer">
+                                                <x-jet-secondary-button wire:click="$toggle('aceptar')">
+                                                    Cancelar
+                                                </x-jet-secondary-button>
+
+                                                <x-jet-danger-button class="ml-2" wire:click="aceptar({{ $trabajador['id'] }})">
+                                                    Aceptar
+                                                </x-jet-danger-button>
+                                            </x-slot>
+                                        </x-jet-dialog-modal>
+
+                                        <x-jet-dialog-modal id:="$trabajador['id']" wire:model="rechazar">
+                                            <x-slot name="title">
+                                                Rechazar Trabajador
+                                            </x-slot>
+
+                                            <x-slot name="content">
+                                                ¿Está seguro de rechazar a este trabajador?
+                                            </x-slot>
+
+                                            <x-slot name="footer">
+                                                <x-jet-secondary-button wire:click="$toggle('rechazar')">
+                                                    Cancelar
+                                                </x-jet-secondary-button>
+
+                                                <x-jet-danger-button class="ml-2" wire:click="rechazar({{ $trabajador['id'] }})">
+                                                    Rechazar
+                                                </x-jet-danger-button>
+                                            </x-slot>
+                                        </x-jet-dialog-modal>
+
                                     </div>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
+
+
 
 
                 </div>

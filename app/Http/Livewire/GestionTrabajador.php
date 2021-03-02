@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
@@ -12,6 +13,9 @@ class GestionTrabajador extends Component
     public $aceptar;
     public $rechazar;
     public $ver;
+    public $userId;
+    public $currentuser;
+    public $email;
     public function mount(){
         $this->aceptar=false;
         $this->rechazar=false;
@@ -27,15 +31,35 @@ class GestionTrabajador extends Component
         return view('livewire.gestion-trabajador',['response'=>$response])->layout('layouts.app',['header'=>'Gestion de trabajadores']);
     }
 
-    public function aceptar($id){
-        $this->aceptar=false;
-        $response = Http::post('https://topicos-web.herokuapp.com/api/trabajadores/aceptar', [
+    public function setId($id,$opcion){
+        $this->userId=$id;
+        $response = Http::get('https://topicos-web.herokuapp.com/api/trabajadores/detalle', [
             'id' => $id,
         ]);
+        $this->currentuser=$response->json();
+
+        if($opcion==1){
+            $this->aceptar=true;
+        }
+        if($opcion==2){
+            $this->rechazar=true;
+        }
+        if($opcion==3){
+            $this->ver=true;
+        }
     }
-    public function rechazar($id){
+    public function aceptar(){
+        $this->aceptar=false;
+        $response = Http::post('https://topicos-web.herokuapp.com/api/trabajadores/aceptar', [
+            'id' => $this->userId,
+            'email'=>$this->currentuser['email'],
+        ]);
+    }
+    public function rechazar(){
+        $this->rechazar=false;
         $response = Http::post('https://topicos-web.herokuapp.com/api/trabajadores/rechazar', [
-            'id' => $id,
+            'id' => $this->userId,
+            'email'=>$this->currentuser['email'],
         ]);
     }
 }

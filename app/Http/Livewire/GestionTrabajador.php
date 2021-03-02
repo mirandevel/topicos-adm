@@ -15,7 +15,6 @@ class GestionTrabajador extends Component
     public $ver;
     public $userId;
     public $currentuser;
-    public $email;
     public function mount(){
         $this->aceptar=false;
         $this->rechazar=false;

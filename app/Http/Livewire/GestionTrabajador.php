@@ -47,18 +47,13 @@ class GestionTrabajador extends Component
             $this->ver=true;
         }
     }
-    public function aceptar(){
-        $this->aceptar=false;
-        $response = Http::post('https://topicos-web.herokuapp.com/api/trabajadores/aceptar', [
+    public function aceptarRechazar($accion){
+        if($accion==1) $this->aceptar=false;
+        else $this->rechazar=false;
+        $response = Http::post('https://topicos-web.herokuapp.com/api/trabajadores/aceptar_rechazar', [
             'id' => $this->userId,
             'email'=>$this->currentuser['email'],
-        ]);
-    }
-    public function rechazar(){
-        $this->rechazar=false;
-        $response = Http::post('https://topicos-web.herokuapp.com/api/trabajadores/rechazar', [
-            'id' => $this->userId,
-            'email'=>$this->currentuser['email'],
+            'accion'=>$accion
         ]);
     }
 }

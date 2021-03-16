@@ -14,11 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect(\route('gestion.trabajador'));
+    return redirect(\route('gestion.dashboard'));
 });
 
 Route::get('/gestion/trabajadores',\App\Http\Livewire\GestionTrabajador::class)->name('gestion.trabajador');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('gestion/dashboard', \App\Http\Livewire\Dashboard::class)->name('dashboard');

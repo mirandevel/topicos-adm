@@ -132,7 +132,7 @@
                                 Cancelar
                             </x-jet-secondary-button>
 
-                            <x-jet-danger-button class="ml-2" wire:click="aceptar()">
+                            <x-jet-danger-button class="ml-2" wire:click="aceptarRechazar({{1}})">
                                 Aceptar
                             </x-jet-danger-button>
                         </x-slot>
@@ -152,7 +152,7 @@
                                 Cancelar
                             </x-jet-secondary-button>
 
-                            <x-jet-danger-button class="ml-2" wire:click="rechazar()">
+                            <x-jet-danger-button class="ml-2" wire:click="aceptarRechazar({{2}})">
                                 Rechazar
                             </x-jet-danger-button>
                         </x-slot>

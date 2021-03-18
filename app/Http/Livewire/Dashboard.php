@@ -14,6 +14,6 @@ class Dashboard extends Component
         $response = Http::get('https://topicos-web.herokuapp.com/api/dashboard', []);
         return view('livewire.dashboard',
         ['usuarios'=>$response->json()['usuarios'],
-        'solicitudes'=>$response->json()['solicitudes']]);
+        'solicitudes'=>$response->json()['solicitudes']])->layout('layouts.app',['header'=>'Dashboard']);
     }
 }

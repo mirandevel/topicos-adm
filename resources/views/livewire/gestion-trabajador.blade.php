@@ -2,7 +2,7 @@
     <div class="container antialiased font-sans mx-auto px-4 sm:px-8">
         <div class="py-8">
             <div>
-                <h2 class="text-2xl font-semibold leading-tight">Usuarios</h2>
+                <h2 class="text-2xl font-semibold leading-tight">Trabajadores</h2>
             </div>
             <div class="relative flex justify-center">
                 <x-buscador wire:model="nombre">
@@ -17,7 +17,7 @@
                         <option value="t">Todos</option>
                         <option value="a">Aceptados</option>
                         <option value="r">Rechazados</option>
-                        <option value="p">Pendiente</option>
+                        <option value="p">Pendientes</option>
                     </select>
                 </div>
             </div>
@@ -183,11 +183,11 @@
                                             $dias=explode( ',', $servicio['dias'] );
                                         @endphp
                                         <p class="text-gray-900 text-center text-lg font-semibold mt-3 uppercase">{{$servicio['nombre']}}</p>
-                                    <div class="flex justify-center">
-                                        @foreach($dias as $dia)
-                                            <span class="mr-2 bg-blue-500 rounded-full px-3 py-2">{{$dia}}</span>
-                                        @endforeach
-                                    </div>
+                                        <div class="flex justify-center">
+                                            @foreach($dias as $dia)
+                                                <span class="mr-2 bg-blue-500 rounded-full px-3 py-2">{{$dia}}</span>
+                                            @endforeach
+                                        </div>
                                         <p class="text-gray-900 text-center">Hora de inicio: {{ $servicio['hora_inicio'] }}</p>
                                         <p class="text-gray-900 text-center">Hora de finalización: {{ $servicio['hora_fin'] }}</p>
 

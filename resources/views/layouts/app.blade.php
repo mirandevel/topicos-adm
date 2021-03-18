@@ -28,7 +28,17 @@
             @if (isset($header))
                 <header class="bg-white shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                                {{ __('Dashboard') }}
+                            </x-jet-nav-link>
+                                <x-jet-nav-link href="{{ route('gestion.trabajador') }}" :active="request()->routeIs('gestion.trabajador')">
+                                    {{ __('Trabajadores') }}
+                                </x-jet-nav-link>
+                                <x-jet-nav-link href="{{ route('gestion.solicitud') }}" :active="request()->routeIs('gestion.solicitud')">
+                                    {{ __('Solicitudes') }}
+                                </x-jet-nav-link>
+                        </div>
                     </div>
                 </header>
             @endif

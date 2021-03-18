@@ -27,7 +27,7 @@ class GestionTrabajador extends Component
             'estado' => $this->estado,
             'nombre' => $this->nombre,
         ]);
-        return view('livewire.gestion-trabajador',['response'=>$response])->layout('layouts.app',['header'=>'Gestion de trabajadores']);
+        return view('livewire.gestion-trabajador',['response'=>$response])->layout('layouts.app',['header'=>'Trabajadores']);
     }
 
     public function setId($id,$opcion){

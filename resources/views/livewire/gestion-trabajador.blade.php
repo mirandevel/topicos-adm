@@ -51,7 +51,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($response->json() as $trabajador)
+                        @foreach($response as $trabajador)
                             <tr>
                                 <td class="px-5 py-5 border-b border-gray-800 bg-white text-sm">
                                     <p class="text-gray-900 text-center whitespace-no-wrap">{{ $trabajador['nombre'] }}</p>
